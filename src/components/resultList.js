@@ -11,7 +11,9 @@ import { withNavigation } from "react-navigation";
 import Card from "./card";
 
 const ResultList = ({ title, results, navigation }) => {
-  console.log(withNavigation)
+  if (!results.length) {
+    return null;
+  }
   return (
     <View style={styles.container}>
       <Text style={styles.titleStyles}>{title}</Text>
@@ -22,7 +24,9 @@ const ResultList = ({ title, results, navigation }) => {
         keyExtractor={(result) => result.id}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity onPress={() => navigation.navigate("ResultShow")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("ResultShow", { id: item.id })}
+            >
               <Card result={item} />
             </TouchableOpacity>
           );
