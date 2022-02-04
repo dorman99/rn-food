@@ -12,9 +12,9 @@ const SearchScreen = () => {
   const filterResultsByPrice = (price) => {
     return results.filter((r) => r.price === price);
   };
-// adding flex: 1 to parent element to tell them, just expand to available screen not out of it
+  
   return (
-    <View style={{flex: 1}}>
+    <>
       <SearchBar
         term={term}
         onTermChange={(newTerm) => setTerm(newTerm)}
@@ -27,7 +27,7 @@ const SearchScreen = () => {
         <ResultList title="Big Spender" results={filterResultsByPrice("$$$")} />
         <ResultList title="Bigger Amount" results={filterResultsByPrice("$")} />
       </ScrollView>
-    </View>
+    </>
   );
 };
 
