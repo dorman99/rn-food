@@ -25,7 +25,7 @@ export default () => {
 
   useEffect(() => {
     // handle side effect based on state / render state
-    searchAPI("pasta");
+    searchAPI("pizza");
   }, []);
 
   return [searchAPI, results, errorMessage];
